@@ -1,0 +1,39 @@
+// Contador livros e categorias
+db.Biblioteca.aggregate([
+  {
+    $project: {
+      title: 1,
+      categories: 1
+    }
+  },
+  {
+    $count: "total"
+  }
+])
+
+// Contador de autores
+db.Biblioteca.aggregate([
+  { $unwind: "$authors" },
+  {
+    $group: {
+      _id: "$authors"
+    }
+  },
+  {
+    $count: "total"
+  }
+])
+
+// Contador autores com livros > 120 páginas
+db.Biblioteca.aggregate([
+  { $match: { pageCount: { $gt: 120 } } },
+  { $unwind: "$authors" },
+  {
+    $group: {
+      _id: "$authors"
+    }
+  },
+  {
+    $count: "total"
+  }
+])

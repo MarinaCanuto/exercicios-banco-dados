@@ -1,0 +1,16 @@
+db.Biblioteca.countDocuments({
+  status: { $ne: "PUBLISH" },
+  pageCount: { $lt: 300 }
+})
+
+db.Biblioteca.countDocuments({
+  title: { $regex: /MongoDB|SQL Server/i }
+})
+
+db.Biblioteca.countDocuments({
+  isbn: { $regex: /^18/ }
+})
+
+db.Biblioteca.countDocuments({
+  longDescription: { $regex: /java|mobile/i }
+})

@@ -1,0 +1,20 @@
+// Livros não publicados e com menos de 300 páginas
+db.Biblioteca.find({
+  status: { $ne: "PUBLISH" },
+  pageCount: { $lt: 300 }
+})
+
+// MongoDB ou SQL Server no título
+db.Biblioteca.find({
+  title: { $regex: /MongoDB|SQL Server/i }
+})
+
+// ISBN começando com 18
+db.Biblioteca.find({
+  isbn: { $regex: /^18/ }
+})
+
+// JAVA ou Mobile na descrição
+db.Biblioteca.find({
+  longDescription: { $regex: /java|mobile/i }
+})

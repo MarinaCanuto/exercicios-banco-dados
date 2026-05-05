@@ -20,7 +20,12 @@ Arquivos:
 
 ## SQL
 
-Pasta criada conforme solicitado na atividade.
+Consultas realizadas utilizando banco relacional (modelo Sakila utilizado em aula).
+
+Arquivos:
+
+- exercicio_1.sql
+- exercicio_2.sql
 
 ## Branch utilizada
 
